@@ -5,7 +5,7 @@ import Button from "@/src/components/features/Button";
 
 type InputProps = {
     type: string;
-    defaultValue: any;
+    defaultValue: string | number;
     placeholder: string;
     onChange: React.ChangeEventHandler;
 }
