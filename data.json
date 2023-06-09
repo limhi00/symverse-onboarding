@@ -1,0 +1,76 @@
+{
+  "posts": [
+    {
+      "id": 1 ,
+      "img": "assets/img/1.jpg" ,
+      "title": "오리가 얼면?",
+      "description": "언덕"
+    },
+    {
+      "id": 2 ,
+      "img": "assets/img/2.jpg" ,
+      "title": "무가 울면?",
+      "description": "무뚝뚝"
+    },
+    {
+      "id": 3 ,
+      "img": "assets/img/3.jpg" ,
+      "title": "딸기가 직장을 잃으면?",
+      "description": "딸기시럽"
+    },
+    {
+      "id": 4 ,
+      "img": "assets/img/4.jpg" ,
+      "title": "소금의 유통기한은?",
+      "description": "천일염"
+    },
+    {
+      "id": 5 ,
+      "img": "assets/img/5.jpg" ,
+      "title": "세상에서 가장 억울한 도형은?",
+      "description": "원통"
+    },
+    {
+      "id": 6 ,
+      "img": "assets/img/6.jpg" ,
+      "title": "우유가 넘어지면?",
+      "description": "아야"
+    },
+    {
+      "id": 7 ,
+      "img": "assets/img/7.jpg" ,
+      "title": "토끼가 쓰는 빗은?",
+      "description": "래빗"
+    },
+    {
+      "id": 8 ,
+      "img": "assets/img/8.jpg" ,
+      "title": "비가 1시간 동안 내리면?",
+      "description": "추적 60분"
+    },
+    {
+      "id": 9 ,
+      "img": "assets/img/9.jpg" ,
+      "title": "삶은?",
+      "description": "계란"
+    },
+    {
+      "id": 10 ,
+      "img": "assets/img/10.jpg" ,
+      "title": "칼이 정색하면?",
+      "description": "검정색"
+    },
+    {
+      "id": 11 ,
+      "img": "assets/img/11.jpg" ,
+      "title": "소가 노래하면?",
+      "description": "소송"
+    },
+    {
+      "id": 12 ,
+      "img": "assets/img/12.jpg" ,
+      "title": "침묵을 영어로?",
+      "description": "노말"
+    }
+  ]
+}
