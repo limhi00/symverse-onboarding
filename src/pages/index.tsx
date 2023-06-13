@@ -5,6 +5,7 @@ import HeaderComponent from "@/src/components/layout/Header";
 import FooterComponent from "@/src/components/layout/Footer";
 import ListComponent from "@/src/components/views/List";
 import Input from "@/src/components/atoms/Input";
+import Select from "@/src/components/atoms/Select";
 import Button from "@/src/components/atoms/Button";
 import {useMainHook} from "@/src/hooks/useMainHook";
 
@@ -23,7 +24,7 @@ const MainPage = () => {
 
     useEffect(() => {
         const getData = async () => {
-            const response = await axios.get('http://localhost:3001/posts');
+            const response = await axios.get('${process.env.NEXT_PUBLIC_API_HOST}/posts');
             setPosts(response.data);
             setResult(response.data);
         }
@@ -39,7 +40,9 @@ const MainPage = () => {
         const filteredPosts = posts.filter((item) => item.title.includes(searchKeyword));
         setResult(filteredPosts);
     }*/
-    const {posts, searchKeyword, handleSearch, handleSearchAction, handleRefresh} = useMainHook();
+
+    const {posts, searchKeyword, handleSearchSelect, handleSearchKeyword, handleSearchAction, handleSearchRefresh, handleScroll} = useMainHook();
+    const options = [{'value': 'title', 'innerText': '제목'}, {'value': 'des', 'innerText': '내용'}];
 
     return (
         <div>
@@ -52,11 +55,14 @@ const MainPage = () => {
                     margin: "50px auto"
                 }}
             >
-                <Input type={ "text" } defaultValue={ searchKeyword } placeholder={ "검색어를 입력하세요" } onChange={ handleSearch } />
+                <Select options={ options } onChange={ handleSearchSelect }></Select>
+                <Input type={ "text" } defaultValue={ searchKeyword } placeholder={ "검색어를 입력하세요" } onChange={ handleSearchKeyword } />
                 <Button innerText={ "search" } onClick={ handleSearchAction } />
-                <Button innerText={ "🔄" } onClick={ handleRefresh } />
+                <Button innerText={ "🔄" } onClick={ handleSearchRefresh } />
             </div>
-            <ListComponent subTitle={ "Contents" } posts={ posts }/>
+            <div onScroll={ handleScroll }>
+                <ListComponent subTitle={ "Contents" } posts={ posts }/>
+            </div>
             <FooterComponent/>
         </div>
     );

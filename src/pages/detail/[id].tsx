@@ -30,7 +30,7 @@ const DetailPage = () => {
             const postId = router.query.id;
             // console.log(router)
             // console.log("post id: " + postId);
-            const url = `http://localhost:3001/posts?id=${postId}`;
+            const url = `${process.env.NEXT_PUBLIC_API_HOST}/posts?id=${postId}`;
             const response = await axios.get(url);
             setPost(response.data[0]);
         };

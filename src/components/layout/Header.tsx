@@ -4,10 +4,12 @@ import {useAtom} from "jotai";
 import {accessTokenAtom} from "@/src/stories/auth";
 import {useRouter} from "next/router";
 
+type loginStatus = 'login' | 'logout';
+
 const HeaderComponent = () => {
 
     const router = useRouter();
-    const [loginStatus, setLoginStatus] = useState<string>('login');
+    const [loginStatus, setLoginStatus] = useState<loginStatus>('login');
     const [authToken, setAuthToken] = useAtom(accessTokenAtom);
 
     useEffect(() => {
