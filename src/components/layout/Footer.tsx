@@ -14,7 +14,8 @@ const FooterComponent = () => {
                 textAlign: "end",
                 appearance: "none",
                 userSelect: "none",
-                height: "100%"
+                height: "100%",
+                bottom: "0"
             }}
         >
             <p>writer: limhi</p>

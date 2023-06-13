@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { css } from "@emotion/react";
 import { useRouter } from "next/router";
 import axios from "axios";
+import Link from "next/link";
 
 import HeaderComponent from "@/src/components/layout/Header";
 import FooterComponent from "@/src/components/layout/Footer";
-import Button from "@/src/components/features/Button";
+import Button from "@/src/components/atoms/Button";
 
 type PostProps = {
     id: number;
@@ -14,7 +14,7 @@ type PostProps = {
     description: string;
 };
 
-const DetailComponent = () => {
+const DetailPage = () => {
 
     const [post, setPost] = useState<PostProps>({
         id: 0,
@@ -23,18 +23,19 @@ const DetailComponent = () => {
         description: "",
     });
     const [count, setCount] = useState<number>(0);
-
     const router = useRouter();
+
     useEffect(() => {
         const getPost = async () => {
-            const postId = router.asPath.split("id=")[1];
-            console.log("post id: " + postId);
+            const postId = router.query.id;
+            // console.log(router)
+            // console.log("post id: " + postId);
             const url = `http://localhost:3001/posts?id=${postId}`;
             const response = await axios.get(url);
             setPost(response.data[0]);
         };
         getPost();
-    }, [router.asPath]);
+    }, [router.query]);
 
     const handleCount = (event: React.MouseEvent<HTMLButtonElement>) => {
         setCount(count+1);
@@ -57,7 +58,7 @@ const DetailComponent = () => {
                 <div>
                     <h1>{ post.title }</h1>
                 </div>
-                <div>
+                <div css={{ display: "flex", justifyContent: "center", alignItems: "center" }} >
                     <table>
                         <tbody>
                         <tr>
@@ -71,11 +72,16 @@ const DetailComponent = () => {
                         </tbody>
                     </table>
                 </div>
-                <div css={{ display: "flex", gap: "8px", justifyContent: "center", alignItems: "center" }} ><Button innerText={ "ㅋ" } onClick={ handleCount } /> <span>{ count }</span></div>
+                <div css={{ display: "flex", gap: "8px", justifyContent: "center", alignItems: "center" }} >
+                    <Button innerText={ "ㅋ" } onClick={ handleCount } /> <span>{ count }</span>
+                </div>
+                <div css={{ display: "flex", justifyContent: "center", alignItems: "end" }} >
+                    <Link href="/" css={{textDecoration: "none", fontWeight: "900"}}>Home</Link>
+                </div>
             </div>
             <FooterComponent />
         </div>
     );
 };
 
-export default DetailComponent;
+export default DetailPage;

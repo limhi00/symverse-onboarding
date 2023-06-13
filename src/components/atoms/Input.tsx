@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "@emotion/react";
 
-import Button from "@/src/components/features/Button";
+import Button from "@/src/components/atoms/Button";
 
 type InputProps = {
     type: string;

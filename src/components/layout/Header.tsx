@@ -1,22 +1,18 @@
 import React, {useEffect, useState} from "react";
-// import { cookies } from "next/headers";
-import { css } from "@emotion/react";
 import Link from "next/link";
+import {useAtom} from "jotai";
+import {accessTokenAtom} from "@/src/stories/auth";
 
 const HeaderComponent = () => {
 
-    const [checkLogin, setCheckLogin] = useState<string>('Login');
+    const [loginStatus, setLoginStatus] = useState<string>('login');
+    const [authToken, setAuthToken] = useAtom(accessTokenAtom);
 
-    // useEffect(() => {
-    //     const checkCookie = () => {
-    //         const cookieList = cookies();
-    //         const cookie: string = cookieList.get('signInInfo') == undefined ? '' : cookieList.get('signInInfo');
-    //         if(cookie != '') {
-    //             setCheckLogin('Logout');
-    //         }
-    //     }
-    //     checkCookie();
-    // }, []);
+    useEffect(() => {
+        const handleLoginStatus = () => {
+
+        }
+    }, []);
 
 
     return (
@@ -49,7 +45,7 @@ const HeaderComponent = () => {
                     cursor: "pointer"
                 }}
             >
-                <Link href="/login" css={{textDecoration: "none"}}>{ checkLogin }</Link>
+                <Link href="/login" css={{textDecoration: "none"}}>{ loginStatus }</Link>
             </div>
         </div>
     );

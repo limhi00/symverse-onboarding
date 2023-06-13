@@ -3,20 +3,21 @@ import axios from "axios";
 
 import HeaderComponent from "@/src/components/layout/Header";
 import FooterComponent from "@/src/components/layout/Footer";
-import ListComponent from "@/src/components/features/List";
-import Input from "@/src/components/features/Input";
-import Button from "@/src/components/features/Button";
+import ListComponent from "@/src/components/views/List";
+import Input from "@/src/components/atoms/Input";
+import Button from "@/src/components/atoms/Button";
+import {useMainHook} from "@/src/hooks/useMainHook";
 
-type PostProps = {
+export type PostProps = {
     id: number;
     img: string;
     title: string;
     description: string;
 }
 
-const MainComponent = () => {
+const MainPage = () => {
 
-    const [posts, setPosts] = useState<PostProps[]>([]);
+    /*const [posts, setPosts] = useState<PostProps[]>([]);
     const [searchKeyword, setSearchKeyword] = useState<string>('');
     const [result, setResult] = useState<PostProps[]>([]);
 
@@ -34,14 +35,15 @@ const MainComponent = () => {
         console.log(event.target.value);
     };
 
-    const searchAction = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const handleSearchAction = (event: React.MouseEvent<HTMLButtonElement>) => {
         const filteredPosts = posts.filter((item) => item.title.includes(searchKeyword));
         setResult(filteredPosts);
-    }
+    }*/
+    const {posts, searchKeyword, handleSearch, handleSearchAction, handleRefresh} = useMainHook();
 
     return (
         <div>
-            <HeaderComponent />
+            <HeaderComponent/>
             <div
                 css={{
                     display: "flex",
@@ -50,13 +52,14 @@ const MainComponent = () => {
                     margin: "50px auto"
                 }}
             >
-                <Input type={ "text" } defaultValue={ searchKeyword } placeholder={ "검색어를 입력하세요" } onChange={ handleSearch }/>
-                <Button innerText={ "search" } onClick={ searchAction } />
+                <Input type={ "text" } defaultValue={ searchKeyword } placeholder={ "검색어를 입력하세요" } onChange={ handleSearch } />
+                <Button innerText={ "search" } onClick={ handleSearchAction } />
+                <Button innerText={ "🔄" } onClick={ handleRefresh } />
             </div>
-            <ListComponent subTitle={ "Contents" } posts={ result } />
-            <FooterComponent />
+            <ListComponent subTitle={ "Contents" } posts={ posts }/>
+            <FooterComponent/>
         </div>
     );
 }
 
-export default MainComponent;
+export default MainPage;

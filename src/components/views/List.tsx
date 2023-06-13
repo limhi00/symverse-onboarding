@@ -1,5 +1,7 @@
 import React from "react";
 import { css } from "@emotion/react";
+import {useRouter} from "next/router";
+import { useLoginHook } from "@/src/hooks/useLoginHook";
 
 type ListProps = {
     subTitle: string;
@@ -14,8 +16,15 @@ type PostProps = {
 
 const ListComponent = ({ subTitle, posts }: ListProps) => {
 
+    const router = useRouter();
+    const { accessToken } = useLoginHook();
+
     const detailView = (postId: number) => {
-        window.location.href = "/detail?id="+postId.toString();
+        if (!accessToken()) {
+            router.push('/login');
+        } else {
+            router.push(`/detail/${postId}`);
+        }
     }
 
     return (

@@ -1,24 +1,43 @@
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
-const Index = () => {
+import { useLoginHook } from "@/src/hooks/useLoginHook";
 
-    const [idValue, setIdValue] = useState<string>('');
-    const [pwdValue, setPwdValue] = useState<string>('');
+const user = {
+    accessUserId: "limhi",
+    accessUserPwd: "1111",
+    accessUserName: "lim"
+}
+
+const LoginPage = () => {
+
+    const router = useRouter();
+    const [inputId, setInputId] = useState<string>('');
+    const [inputPwd, setInputPwd] = useState<string>('');
+
+    const { login } = useLoginHook()
 
     const saveUserId = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setIdValue(event.target.value);
+        setInputId(event.target.value);
     };
     const saveUserPwd = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setPwdValue(event.target.value);
+        setInputPwd(event.target.value);
     };
 
-    const loginCheck = (event: React.MouseEvent<HTMLButtonElement>) => {
-        if(idValue == "limhi" && pwdValue == "1111") {
-
-            // document.cookie
-            window.location.href = "/";
+    const authFilter = (event: React.MouseEvent<HTMLButtonElement>) => {
+        if(inputId == user.accessUserId && inputPwd == user.accessUserPwd) {
+            /**
+             * on sign in success
+             * checking Id & Pwd and return accessToken & refreshToken & expiredTime
+             */
+            login(user.accessUserId, user.accessUserName);
+            router.push('/');
         } else {
-            window.location.reload();
+            /**
+             * sign in denied
+             * '/login' reload
+             */
+            router.reload();
         }
     }
 
@@ -57,7 +76,7 @@ const Index = () => {
                                marginBottom: "7px"
                            }}
                            placeholder="ID"
-                           defaultValue={idValue}
+                           defaultValue={inputId}
                            onChange={saveUserId}
                     />
                     <input type="password"
@@ -69,7 +88,7 @@ const Index = () => {
                                padding: "10px"
                            }}
                            placeholder="PWD"
-                           defaultValue={pwdValue}
+                           defaultValue={inputPwd}
                            onChange={saveUserPwd}
                     />
                 </div>
@@ -90,7 +109,7 @@ const Index = () => {
                                 appearance: "none",
                                 userSelect: "none",
                             }}
-                            onClick={ loginCheck }
+                            onClick={ authFilter }
                     >login</button>
                 </div>
             </div>
@@ -98,4 +117,4 @@ const Index = () => {
     )
 }
 
-export default Index;
+export default LoginPage;
