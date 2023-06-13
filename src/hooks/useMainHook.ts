@@ -19,7 +19,7 @@ export const useMainHook = () => {
             const response = await axios.get(url);
             // const response = await axios.get('${process.env.NEXT_PUBLIC_API_HOST}/posts');
             setDefaultPosts(response.data);
-            // setResultPosts(response.data);
+            setResultPosts(response.data);
         }
         getDefault();
     }, []);
@@ -34,10 +34,10 @@ export const useMainHook = () => {
 
     const handleSearchAction = async (event: React.MouseEvent<HTMLButtonElement>) => {
 
-        if (searchSelect == 'title') {
-            setSearchUrl(`${process.env.NEXT_PUBLIC_API_HOST}/posts?title_like=${searchKeyword}`);
+        if (searchSelect == 'tit') {
+            setSearchUrl(`${process.env.NEXT_PUBLIC_API_HOST}/posts?title_like=${searchKeyword}&_page=${pageNum}&_limit=${pageEntries}`);
         } else if(searchSelect == 'des') {
-            setSearchUrl(`${process.env.NEXT_PUBLIC_API_HOST}/posts?description_like=${searchKeyword}`);
+            setSearchUrl(`${process.env.NEXT_PUBLIC_API_HOST}/posts?description_like=${searchKeyword}&_page=${pageNum}&_limit=${pageEntries}`);
         } else {
             alert('검색 카테고리를 선택해주세요.');
         }
@@ -58,10 +58,6 @@ export const useMainHook = () => {
 
     }
 
-    useEffect(() => {
-        const getNextPage = () => {
-        }
-    }, [pageNum]);
 
     return {
         posts: resultPosts,
