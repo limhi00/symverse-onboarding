@@ -1,18 +1,33 @@
-import React, {useEffect, useState} from "react";
+import React, {MouseEvent, useEffect, useState} from "react";
 import Link from "next/link";
 import {useAtom} from "jotai";
 import {accessTokenAtom} from "@/src/stories/auth";
+import {useRouter} from "next/router";
 
 const HeaderComponent = () => {
 
+    const router = useRouter();
     const [loginStatus, setLoginStatus] = useState<string>('login');
     const [authToken, setAuthToken] = useAtom(accessTokenAtom);
 
     useEffect(() => {
         const handleLoginStatus = () => {
-
+            if (authToken != undefined) {
+                setLoginStatus('logout');
+            }
         }
+        handleLoginStatus();
     }, []);
+
+    const handleLogout = (event: MouseEvent<HTMLElement>) => {
+        if (loginStatus == 'logout') {
+            setAuthToken(undefined);
+            setLoginStatus('login');
+            router.reload();
+        } else {
+            router.push('/login');
+        }
+    }
 
 
     return (
@@ -40,12 +55,10 @@ const HeaderComponent = () => {
             <div
                 css={{
                     display: "flex",
-                    alignItems: "end",
-                    marginBottom: "10px",
-                    cursor: "pointer"
+                    alignItems: "end"
                 }}
             >
-                <Link href="/login" css={{textDecoration: "none"}}>{ loginStatus }</Link>
+                <p css={{ cursor: "pointer" }} onClick={ handleLogout }>{ loginStatus }</p>
             </div>
         </div>
     );

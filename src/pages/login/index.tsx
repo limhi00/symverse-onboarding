@@ -19,10 +19,10 @@ const LoginPage = () => {
 
     const saveUserId = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputId(event.target.value);
-    };
+    }
     const saveUserPwd = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputPwd(event.target.value);
-    };
+    }
 
     const authFilter = (event: React.MouseEvent<HTMLButtonElement>) => {
         if(inputId == user.accessUserId && inputPwd == user.accessUserPwd) {
