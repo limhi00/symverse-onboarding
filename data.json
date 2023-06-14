@@ -1,76 +1,254 @@
 {
   "posts": [
-    {
-      "id": 1 ,
-      "img": "/assets/img/1.jpg" ,
-      "title": "오리가 얼면?",
-      "description": "언덕"
-    },
-    {
-      "id": 2 ,
-      "img": "/assets/img/2.jpg" ,
-      "title": "무가 울면?",
-      "description": "무뚝뚝"
-    },
-    {
-      "id": 3 ,
-      "img": "/assets/img/3.jpg" ,
-      "title": "딸기가 직장을 잃으면?",
-      "description": "딸기시럽"
-    },
-    {
-      "id": 4 ,
-      "img": "/assets/img/4.jpg" ,
-      "title": "소금의 유통기한은?",
-      "description": "천일염"
-    },
-    {
-      "id": 5 ,
-      "img": "/assets/img/5.jpg" ,
-      "title": "세상에서 가장 억울한 도형은?",
-      "description": "원통"
-    },
-    {
-      "id": 6 ,
-      "img": "/assets/img/6.jpg" ,
-      "title": "우유가 넘어지면?",
-      "description": "아야"
-    },
-    {
-      "id": 7 ,
-      "img": "/assets/img/7.jpg" ,
-      "title": "토끼가 쓰는 빗은?",
-      "description": "래빗"
-    },
-    {
-      "id": 8 ,
-      "img": "/assets/img/8.jpg" ,
-      "title": "비가 1시간 동안 내리면?",
-      "description": "추적 60분"
-    },
-    {
-      "id": 9 ,
-      "img": "/assets/img/9.jpg" ,
-      "title": "삶은?",
-      "description": "계란"
-    },
-    {
-      "id": 10 ,
-      "img": "/assets/img/10.jpg" ,
-      "title": "칼이 정색하면?",
-      "description": "검정색"
-    },
-    {
-      "id": 11 ,
-      "img": "/assets/img/11.jpg" ,
-      "title": "소가 노래하면?",
-      "description": "소송"
-    },
-    {
-      "id": 12 ,
-      "img": "/assets/img/12.jpg" ,
-      "title": "침묵을 영어로?",
-      "description": "노말"
-    }
+      {
+        "id": "001",
+        "title": "이상해씨",
+        "description": "풀, 독"
+      },
+      {
+        "id": "002",
+        "title": "이상해풀",
+        "description": "풀, 독"
+      },
+      {
+        "id": "003",
+        "title": "이상해꽃",
+        "description": "풀, 독"
+      },
+      {
+        "id": "004",
+        "title": "파이리",
+        "description": "불꽃"
+      },
+      {
+        "id": "005",
+        "title": "리자드",
+        "description": "불꽃"
+      },
+      {
+        "id": "006",
+        "title": "리자몽",
+        "description": "불꽃, 비행"
+      },
+      {
+        "id": "007",
+        "title": "꼬부기",
+        "description": "물"
+      },
+      {
+        "id": "008",
+        "title": "어니부기",
+        "description": "물"
+      },
+      {
+        "id": "009",
+        "title": "거북왕",
+        "description": "물"
+      },
+      {
+        "id": "010",
+        "title": "캐터피",
+        "description": "벌레,풀"
+      },
+      {
+        "id": "011",
+        "title": "단데기",
+        "description": "벌레,풀"
+      },
+      {
+        "id": "012",
+        "title": "버터플",
+        "description": "벌레, 비행"
+      },
+      {
+        "id": "013",
+        "title": "뿔충이",
+        "description": "벌레, 독"
+      },
+      {
+        "id": "014",
+        "title": "딱충이",
+        "description": "벌레, 독"
+      },
+      {
+        "id": "015",
+        "title": "독침붕",
+        "description": "벌레, 독"
+      },
+      {
+        "id": "016",
+        "title": "구구",
+        "description": "노말, 비행"
+      },
+      {
+        "id": "017",
+        "title": "피죤",
+        "description": "노말, 비행"
+      },
+      {
+        "id": "018",
+        "title": "피죤투",
+        "description": "노말, 비행"
+      },
+      {
+        "id": "019",
+        "title": "꼬렛",
+        "description": "노말"
+      },
+      {
+        "id": "020",
+        "title": "레트라",
+        "description": "노말"
+      },
+      {
+        "id": "021",
+        "title": "깨비참",
+        "description": "노말, 비행"
+      },
+      {
+        "id": "022",
+        "title": "깨비드릴조",
+        "description": "노말, 비행"
+      },
+      {
+        "id": "023",
+        "title": "아보",
+        "description": "독"
+      },
+      {
+        "id": "024",
+        "title": "아보크",
+        "description": "독"
+      },
+      {
+        "id": "025",
+        "title": "피카츄",
+        "description": "전기"
+      },
+      {
+        "id": "026",
+        "title": "라이츄",
+        "description": "전기"
+      },
+      {
+        "id": "027",
+        "title": "모래두지",
+        "description": "땅"
+      },
+      {
+        "id": "028",
+        "title": "고지",
+        "description": "땅"
+      },
+      {
+        "id": "029",
+        "title": "니드런♀",
+        "description": "독"
+      },
+      {
+        "id": "030",
+        "title": "니드리나",
+        "description": "독"
+      },
+      {
+        "id": "031",
+        "title": "니드퀸",
+        "description": "독, 땅"
+      },
+      {
+        "id": "032",
+        "title": "니드런♂",
+        "description": "독"
+      },
+      {
+        "id": "033",
+        "title": "니드리노",
+        "description": "독"
+      },
+      {
+        "id": "034",
+        "title": "니드킹",
+        "description": "독, 땅"
+      },
+      {
+        "id": "035",
+        "title": "삐삐",
+        "description": "페어리"
+      },
+      {
+        "id": "036",
+        "title": "픽시",
+        "description": "페어리"
+      },
+      {
+        "id": "037",
+        "title": "식스테일",
+        "description": "불꽃"
+      },
+      {
+        "id": "038",
+        "title": "나인테일",
+        "description": "불꽃"
+      },
+      {
+        "id": "039",
+        "title": "푸린",
+        "description": "노말, 페어리"
+      },
+      {
+        "id": "040",
+        "title": "푸크린",
+        "description": "노말, 페어리"
+      },
+      {
+        "id": "041",
+        "title": "주뱃",
+        "description": "독, 비행"
+      },
+      {
+        "id": "042",
+        "title": "골뱃",
+        "description": "독, 비행"
+      },
+      {
+        "id": "043",
+        "title": "뚜벅쵸",
+        "description": "풀, 독"
+      },
+      {
+        "id": "044",
+        "title": "냄새꼬",
+        "description": "풀, 독"
+      },
+      {
+        "id": "045",
+        "title": "라플레시아",
+        "description": "풀, 독"
+      },
+      {
+        "id": "046",
+        "title": "파라스",
+        "description": "벌레, 풀"
+      },
+      {
+        "id": "047",
+        "title": "파라섹트",
+        "description": "벌레, 풀"
+      },
+      {
+        "id": "048",
+        "title": "콘팡",
+        "description": "벌레, 독"
+      },
+      {
+        "id": "049",
+        "title": "도나리",
+        "description": "벌레, 독"
+      },
+      {
+        "id": "050",
+        "title": "디그다",
+        "description": "땅"
+      }
   ]
 }

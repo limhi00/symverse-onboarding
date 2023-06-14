@@ -41,8 +41,8 @@ const MainPage = () => {
         setResult(filteredPosts);
     }*/
 
-    const {posts, searchKeyword, handleSearchSelect, handleSearchKeyword, handleSearchAction, handleSearchRefresh, handleScroll} = useMainHook();
-    const options = [{'value': 'title', 'innerText': '제목'}, {'value': 'des', 'innerText': '내용'}];
+    const { posts, searchKeyword, handleSearchSelect, handleSearchKeyword, handleSearchAction, handleSearchRefresh } = useMainHook();
+    const options = [{'value': 'title', 'innerText': '제목'}, {'value': 'description', 'innerText': '내용'}];
 
     return (
         <div>
@@ -60,8 +60,11 @@ const MainPage = () => {
                 <Button innerText={ "search" } onClick={ handleSearchAction } />
                 <Button innerText={ "🔄" } onClick={ handleSearchRefresh } />
             </div>
-            <div onScroll={ handleScroll }>
-                <ListComponent subTitle={ "Contents" } posts={ posts }/>
+            <div>
+                <h1 css={{textAlign: "center"}}>Contents</h1>
+                <div id={ "listContainer" }>
+                    <ListComponent posts={ posts }/>
+                </div>
             </div>
             <FooterComponent/>
         </div>

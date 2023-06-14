@@ -1,15 +1,18 @@
 import React from "react";
-import { css } from "@emotion/react";
 
-type ButtonProps = {
+type OptionProps = {
+    value: string | number;
     innerText: string;
-    onClick: React.MouseEventHandler;
+}
+type SelectProps = {
+    options: OptionProps[];
+    onChange: React.ChangeEventHandler;
 }
 
-const Button = ( { innerText, onClick }: ButtonProps ) => {
+const Select = ({ options, onChange }: SelectProps) => {
 
     return (
-        <button type="button"
+        <select
             css={{
                 borderRadius: "6px",
                 border: "1px solid rgba(27, 31, 36, 0.15)",
@@ -17,19 +20,17 @@ const Button = ( { innerText, onClick }: ButtonProps ) => {
                 color: "#003d94",
                 fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif",
                 fontWeight: "600",
-                lineHeight: "20px",
                 fontSize: "14px",
                 padding: "5px 10px",
                 textAlign: "center",
-                cursor: "pointer",
-                appearance: "none",
-                userSelect: "none",
             }}
-            onClick={ onClick }
+            onChange={ onChange }
         >
-            {innerText}
-        </button>
-    );
+            { options.map((option) => (
+                <option key={ option.value } value={ option.value }>{ option.innerText }</option>
+            ))}
+        </select>
+    )
 }
 
-export default Button;
+export default Select;

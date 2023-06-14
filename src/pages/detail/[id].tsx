@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
-import Link from "next/link";
 
 import HeaderComponent from "@/src/components/layout/Header";
 import FooterComponent from "@/src/components/layout/Footer";
@@ -22,7 +21,6 @@ const DetailPage = () => {
         title: "",
         description: "",
     });
-    const [count, setCount] = useState<number>(0);
     const router = useRouter();
 
     useEffect(() => {
@@ -36,10 +34,6 @@ const DetailPage = () => {
         };
         getPost();
     }, [router.query]);
-
-    const handleCount = (event: React.MouseEvent<HTMLButtonElement>) => {
-        setCount(count+1);
-    }
 
     return (
         <div>
@@ -63,20 +57,17 @@ const DetailPage = () => {
                         <tbody>
                         <tr>
                             <td colSpan={2}>
-                                <img src={ post.img } width="300px" height="300px" alt="post" />
+                                <img src={"https://data1.pokemonkorea.co.kr/newdata/pokedex/full/0"+post.id+"01.png"} width="300px" height="300px" alt="post" />
                             </td>
                         </tr>
                         <tr>
-                            <td>{ post.description }</td>
+                            <td>{ post.description } 타입</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                <div css={{ display: "flex", gap: "8px", justifyContent: "center", alignItems: "center" }} >
-                    <Button innerText={ "ㅋ" } onClick={ handleCount } /> <span>{ count }</span>
-                </div>
                 <div css={{ display: "flex", justifyContent: "center", alignItems: "end" }} >
-                    <Link href="/" css={{textDecoration: "none", fontWeight: "900"}}>Home</Link>
+                    <h4 onClick={ router.back } css={{textDecoration: "none", fontWeight: "900", cursor: "pointer"}}>Home</h4>
                 </div>
             </div>
             <FooterComponent />

@@ -52,7 +52,8 @@ const HeaderComponent = () => {
                     cursor: "pointer"
                 }}
             >
-                <Link href="/" css={{textDecoration: "none"}}><div>👾 Yee</div></Link>
+                <Link href="/" css={{textDecoration: "none"}}><div>
+                    <img src={"https://qph.cf2.quoracdn.net/main-qimg-ff23e7eeaccd975a337b118ede1ceb6d.webp"} width={"50px"}></img> Yeeeee</div></Link>
             </div>
             <div
                 css={{

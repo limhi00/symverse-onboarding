@@ -30,9 +30,7 @@ export const useLoginHook = () => {
             console.log(err);
         }
     }
-    // checkAccessToken: () => {
-    //
-    // }
+
     return {
         login: authTokenSave,
         accessToken: () => {
