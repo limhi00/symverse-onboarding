@@ -35,12 +35,17 @@ const LoginPage = () => {
         }
     }
 
-    useEffect(() => {
+    const enterLogin = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        const enterKey = 13;
         window.addEventListener("keyup", function(event) {
-            if (event.keyCode === 13) {
+            if (event.keyCode === enterKey) {
                 document.querySelector('button')?.click();
             }
         });
+    }
+
+    useEffect(() => {
+        enterLogin()
     }, []);
 
 
