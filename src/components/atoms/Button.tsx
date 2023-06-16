@@ -1,34 +1,37 @@
 import React from "react";
-import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 
 type ButtonProps = {
+    type: "button" | "submit" | "reset" | undefined;
     innerText: string;
-    onClick: React.MouseEventHandler;
+    onClick?: React.MouseEventHandler;
 }
 
-const Button = ( { innerText, onClick }: ButtonProps ) => {
+const DefaultButton = styled.button`
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #d8dcf0;
+  color: #003d94;
+  border-radius: 6px;
+  border: 1px solid rgba(27, 31, 36, 0.15);
+  font-weight: 600;
+  line-height: 20px;
+  font-size: 14px;
+  padding: 5px 10px;
+  text-align: center;
+  cursor: pointer;
+  appearance: none;
+  user-select: none;
+`
+
+const Button = ({type, innerText, onClick}: ButtonProps) => {
 
     return (
-        <button type="button"
-            css={{
-                borderRadius: "6px",
-                border: "1px solid rgba(27, 31, 36, 0.15)",
-                backgroundColor: "#d8dcf0",
-                color: "#003d94",
-                fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif",
-                fontWeight: "600",
-                lineHeight: "20px",
-                fontSize: "14px",
-                padding: "5px 10px",
-                textAlign: "center",
-                cursor: "pointer",
-                appearance: "none",
-                userSelect: "none",
-            }}
-            onClick={ onClick }
+        <DefaultButton
+            type={type}
+            onClick={onClick}
         >
             {innerText}
-        </button>
+        </DefaultButton>
     );
 }
 

@@ -1,7 +1,5 @@
 import React from "react";
-import { css } from "@emotion/react";
-
-import Button from "@/src/components/atoms/Button";
+import styled from "@emotion/styled";
 
 type InputProps = {
     type: string;
@@ -10,21 +8,23 @@ type InputProps = {
     onChange: React.ChangeEventHandler;
 }
 
+const StyleInput = styled.input`
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #fff;
+  color: #003d94;
+  border-radius: 6px;
+  border: 1px solid rgba(27, 31, 36, 0.15);
+  width: 30%;
+  font-weight: 300;
+  font-size: 14px;
+  text-align: center;
+  padding: 7px 10px;
+`
+
 const Input = ( { type, defaultValue, placeholder, onChange }: InputProps ) => {
+
     return (
-        <input type={ type }
-            css={{
-                fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif",
-                borderRadius: "6px",
-                border: "1px solid #bec6e8",
-                width: "300px",
-                backgroundColor: "#fff",
-                color: "#444",
-                fontWeight: "300",
-                fontSize: "14px",
-                textAlign: "center",
-                padding: "7px 10px"
-            }}
+        <StyleInput type={ type }
             placeholder={ placeholder }
             defaultValue={ defaultValue }
             onChange={ onChange }

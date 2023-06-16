@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import React, {useEffect, useState} from "react";
+import {useRouter} from "next/router";
 import axios from "axios";
 
-import HeaderComponent from "@/src/components/layout/Header";
-import FooterComponent from "@/src/components/layout/Footer";
-import Button from "@/src/components/atoms/Button";
+import Layout from "@/src/components/layout/Layout";
 
 type PostProps = {
     id: number;
@@ -36,8 +34,7 @@ const DetailPage = () => {
     }, [router.query]);
 
     return (
-        <div>
-            <HeaderComponent />
+        <Layout>
             <div
                 css={{
                     fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif",
@@ -50,28 +47,29 @@ const DetailPage = () => {
                 }}
             >
                 <div>
-                    <h1>{ post.title }</h1>
+                    <h1>{post.title}</h1>
                 </div>
-                <div css={{ display: "flex", justifyContent: "center", alignItems: "center" }} >
+                <div css={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                     <table>
                         <tbody>
                         <tr>
                             <td colSpan={2}>
-                                <img src={"https://data1.pokemonkorea.co.kr/newdata/pokedex/full/0"+post.id+"01.png"} width="300px" height="300px" alt="post" />
+                                <img src={`https://data1.pokemonkorea.co.kr/newdata/pokedex/full/0${post.id}01.png`}
+                                     width="300px" height="300px" alt="post"/>
                             </td>
                         </tr>
                         <tr>
-                            <td>{ post.description } 타입</td>
+                            <td>{post.description} 타입</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                <div css={{ display: "flex", justifyContent: "center", alignItems: "end" }} >
-                    <h4 onClick={ router.back } css={{textDecoration: "none", fontWeight: "900", cursor: "pointer"}}>Home</h4>
+                <div css={{display: "flex", justifyContent: "center", alignItems: "end"}}>
+                    <h4 onClick={router.back}
+                        css={{textDecoration: "none", fontWeight: "900", cursor: "pointer"}}>Home</h4>
                 </div>
             </div>
-            <FooterComponent />
-        </div>
+        </Layout>
     );
 };
 

@@ -48,7 +48,7 @@ const ListComponent = ({ posts }: ListProps) => {
             >
                 {posts.map(( post ) => (
                     <li key={post.id} onClick={ () => detailView(post.id) }>
-                        <img src={"https://data1.pokemonkorea.co.kr/newdata/pokedex/full/0"+post.id+"01.png"} width="300px" height="300px"/>
+                        <img src={`https://data1.pokemonkorea.co.kr/newdata/pokedex/full/0${post.id}01.png`} width="300px" height="300px"/>
                         <h4>{post.id}. {post.title}</h4>
                     </li>
                 ))}

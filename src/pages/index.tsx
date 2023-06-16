@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from "react";
-import axios from "axios";
 
-import HeaderComponent from "@/src/components/layout/Header";
-import FooterComponent from "@/src/components/layout/Footer";
+import Layout from "@/src/components/layout/Layout";
 import ListComponent from "@/src/components/views/List";
+
 import Input from "@/src/components/atoms/Input";
 import Select from "@/src/components/atoms/Select";
 import Button from "@/src/components/atoms/Button";
@@ -41,33 +40,39 @@ const MainPage = () => {
         setResult(filteredPosts);
     }*/
 
-    const { posts, searchKeyword, handleSearchSelect, handleSearchKeyword, handleSearchAction, handleSearchRefresh } = useMainHook();
-    const options = [{'value': 'title', 'innerText': '제목'}, {'value': 'description', 'innerText': '내용'}];
+    const {
+        posts,
+        searchValue,
+        handleSearchSelect,
+        handleSearchKeyword,
+        handleSearchAction
+    } = useMainHook();
+    const options = [{'value': 'title_like', 'innerText': '제목'}, {'value': 'description_like', 'innerText': '내용'}];
 
     return (
-        <div>
-            <HeaderComponent/>
-            <div
-                css={{
-                    display: "flex",
-                    justifyContent: "center",
-                    gap: "10px",
-                    margin: "50px auto"
-                }}
-            >
-                <Select options={ options } onChange={ handleSearchSelect }></Select>
-                <Input type={ "text" } defaultValue={ searchKeyword } placeholder={ "검색어를 입력하세요" } onChange={ handleSearchKeyword } />
-                <Button innerText={ "search" } onClick={ handleSearchAction } />
-                <Button innerText={ "🔄" } onClick={ handleSearchRefresh } />
+        <Layout>
+            <div>
+                <form
+                    css={{
+                        display: "flex",
+                        justifyContent: "center",
+                        gap: "10px",
+                        margin: "50px auto"
+                    }}
+                    onSubmit={handleSearchAction}>
+                    <Select options={options} onChange={handleSearchSelect}></Select>
+                    <Input type={"text"} defaultValue={searchValue} placeholder={"검색어를 입력하세요"}
+                           onChange={handleSearchKeyword}/>
+                    <Button type={"submit"} innerText={"search"}/>
+                </form>
             </div>
             <div>
                 <h1 css={{textAlign: "center"}}>Contents</h1>
-                <div id={ "listContainer" }>
-                    <ListComponent posts={ posts }/>
+                <div id={"listContainer"}>
+                    <ListComponent posts={posts}/>
                 </div>
             </div>
-            <FooterComponent/>
-        </div>
+        </Layout>
     );
 }
 

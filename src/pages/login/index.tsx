@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useRouter} from "next/router";
 
+import Layout from "@/src/components/layout/Layout";
 import {useLoginHook} from "@/src/hooks/useLoginHook";
 
 const user = {
@@ -36,6 +37,7 @@ const LoginPage = () => {
         }
     }
     return (
+        <Layout>
         <form onSubmit={handleLogin}>
             <div
                 css={{
@@ -118,11 +120,10 @@ const LoginPage = () => {
                             </button>
                         </div>
                     </div>
-                    <h4 onClick={router.back}
-                        css={{textDecoration: "none", fontWeight: "900", margin: "auto", cursor: "pointer"}}>Home</h4>
                 </div>
             </div>
         </form>
+        </Layout>
     )
 }
 

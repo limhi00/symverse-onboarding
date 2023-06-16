@@ -39,7 +39,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 - public - static 파일 ( image, icon 등 )
 - src - 소스 코드 root 디렉토리입니다. ( 해당 설정은 아래 tsconfig.json 에서 추가 설명 )
-- @core - ** BaaS팀 전용 패키지 디렉토리 입니다. 해당 디렉토리 내에 component, style, utils function 등이 포함되어 있습니다.
+- @core - ** BaaS팀 전용 패키지 디렉토리 입니다. 해당 디렉토리 내에 component, loginStyle, utils function 등이 포함되어 있습니다.
 - components - 화면을 구성하는 Component 들의 집합입니다
 - views: 서비스에 특화된 컴포넌트 집합 단위를 의미합니다. ( LoginForm, ProductTopMenu… )
 - atoms: 서비스에 특화된 컴포넌트 개별을 의미합니다.( LoginInput, ProductMenuItem )
