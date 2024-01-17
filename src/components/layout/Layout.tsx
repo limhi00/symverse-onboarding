@@ -1,18 +1,19 @@
 import React from "react";
 
-import HeaderComponent from "@/src/components/layout/Header";
-import FooterComponent from "@/src/components/layout/Footer";
+import Header from "@/src/components/layout/fragment/Header";
+import Footer from "@/src/components/layout/fragment/Footer";
+import {LayoutDiv, MainDiv} from "@/src/styles/layoutStyle";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
 
     return (
-        <div>
-            <HeaderComponent></HeaderComponent>
-                <main>
+        <LayoutDiv>
+            <Header/>
+                <MainDiv>
                     { children }
-                </main>
-            <FooterComponent></FooterComponent>
-        </div>
+                </MainDiv>
+            <Footer/>
+        </LayoutDiv>
     )
 }
 

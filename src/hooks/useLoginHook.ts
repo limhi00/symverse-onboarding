@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import jwt from "jsonwebtoken";
 import {useAtom} from "jotai";
-import {accessTokenAtom} from "@/src/stories/auth";
+import {accessTokenAtom} from "@/src/stores/login/auth";
 
 export const useLoginHook = () => {
 
